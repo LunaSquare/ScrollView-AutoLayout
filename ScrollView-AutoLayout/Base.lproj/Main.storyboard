@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="762" y="-1100"/>
         </scene>
-        <!--Second-->
+        <!--Variable SB-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="ScrollView_AutoLayout" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,32 +107,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGj-a0-GZD" userLabel="DummyView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="150"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jXB-ON-hGK">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iT-pO-VGd" userLabel="Container">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                                <animations/>
+                                            </view>
+                                        </subviews>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstItem="6iT-pO-VGd" firstAttribute="leading" secondItem="jXB-ON-hGK" secondAttribute="leading" id="4sN-Fw-ZoF"/>
+                                            <constraint firstAttribute="bottom" secondItem="6iT-pO-VGd" secondAttribute="bottom" id="WWj-fq-hQV"/>
+                                            <constraint firstAttribute="trailing" secondItem="6iT-pO-VGd" secondAttribute="trailing" id="cio-AA-KZ7"/>
+                                            <constraint firstItem="6iT-pO-VGd" firstAttribute="top" secondItem="jXB-ON-hGK" secondAttribute="top" id="dCc-Wt-byc"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="215.5" height="17"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <constraints>
+                                    <constraint firstItem="6iT-pO-VGd" firstAttribute="height" secondItem="EGj-a0-GZD" secondAttribute="height" id="IIR-bC-zvq"/>
+                                    <constraint firstItem="jXB-ON-hGK" firstAttribute="top" secondItem="EGj-a0-GZD" secondAttribute="top" id="Kby-4x-FUr"/>
+                                    <constraint firstItem="jXB-ON-hGK" firstAttribute="leading" secondItem="EGj-a0-GZD" secondAttribute="leading" id="SBn-Z1-Lnb"/>
+                                    <constraint firstAttribute="width" secondItem="6iT-pO-VGd" secondAttribute="width" multiplier="1:1" id="ScS-W1-oCD"/>
+                                    <constraint firstAttribute="bottom" secondItem="jXB-ON-hGK" secondAttribute="bottom" id="eaf-mc-Yz2"/>
+                                    <constraint firstAttribute="height" constant="150" id="j4h-jF-X1v"/>
+                                    <constraint firstAttribute="trailing" secondItem="jXB-ON-hGK" secondAttribute="trailing" id="p8l-9O-rOi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="EGj-a0-GZD" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="8Lv-vW-gDD"/>
+                            <constraint firstItem="EGj-a0-GZD" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="OYX-J4-noB"/>
+                            <constraint firstAttribute="trailing" secondItem="EGj-a0-GZD" secondAttribute="trailing" id="tkE-w7-uY4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="first" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Variable SB" image="first" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="container" destination="6iT-pO-VGd" id="SSj-MJ-gsl"/>
+                        <outlet property="containerWidthConstraint" destination="ScS-W1-oCD" id="NBV-Qx-xWi"/>
+                        <outlet property="dummyView" destination="EGj-a0-GZD" id="FCm-gN-tpT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="-620" y="-72"/>
         </scene>
-        <!--Item-->
+        <!--Centered SB-->
         <scene sceneID="t1S-Wo-52Q">
             <objects>
                 <viewController id="aVl-8V-9pb" sceneMemberID="viewController">
@@ -173,7 +193,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="first" id="ILo-ta-gr1"/>
+                    <tabBarItem key="tabBarItem" title="Centered SB" image="first" id="ILo-ta-gr1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hka-yQ-xVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
