@@ -23,7 +23,6 @@ class SecondViewController: UIViewController {
     }
 
     
-    
     func createScrollViewStructure() {
         // Number of tiles
         containerWidthConstraint.constraintWithMultiplier(1.0/CGFloat(colors.count))
