@@ -14,7 +14,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var dummyView: UIView!
     
-    let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.yellowColor()]
+    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow]
 
     
     override func viewDidLoad() {
@@ -22,10 +22,10 @@ class SecondViewController: UIViewController {
         createScrollViewStructure()
     }
 
-    
+
     func createScrollViewStructure() {
         // Number of tiles
-        containerWidthConstraint.constraintWithMultiplier(1.0/CGFloat(colors.count))
+        _ = containerWidthConstraint.constraintWithMultiplier(1.0/CGFloat(colors.count))
         container.layoutIfNeeded()
         
         
@@ -45,20 +45,20 @@ class SecondViewController: UIViewController {
             // Add constraints to subview
             var views = ["D": self.dummyView, "S": subview]
             
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:[S(==D)]", options: [], metrics: nil, views: views)
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("V:[S(==D)]", options: [], metrics: nil, views: views)
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[S]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:[S(==D)]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "V:[S(==D)]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[S]", options: [], metrics: nil, views: views)
             
             if index == 0 {
-                constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[S]", options: [], metrics: nil, views: views)
+                constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[S]", options: [], metrics: nil, views: views)
             } else {
                 let leftHandView = subviews[index-1]
                 views["LHV"] = leftHandView
-                constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:[LHV]-0-[S]", options: [], metrics: nil, views: views)
+                constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:[LHV]-0-[S]", options: [], metrics: nil, views: views)
             }
         }
        
-        NSLayoutConstraint.activateConstraints(constraintsArray)
+        NSLayoutConstraint.activate(constraintsArray)
     }
 }
 

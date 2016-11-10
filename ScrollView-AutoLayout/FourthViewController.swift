@@ -10,7 +10,7 @@ import UIKit
 
 class FourthViewController: UIViewController {
     
-    let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.yellowColor(), UIColor.orangeColor()]
+    let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.yellow, UIColor.orange]
     let container = UIView()
     let dummyView = UIView()
     let scrollView = UIScrollView()
@@ -30,12 +30,12 @@ class FourthViewController: UIViewController {
         
         // ScrollView
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.pagingEnabled = true
+        scrollView.isPagingEnabled = true
         dummyView.addSubview(scrollView)
         
         // Container
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = UIColor.purpleColor()
+        container.backgroundColor = UIColor.purple
         scrollView.addSubview(container)
         
         
@@ -43,21 +43,21 @@ class FourthViewController: UIViewController {
         let views = ["D":dummyView, "S":scrollView, "C":container]
         
         // Dummy Constraints
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[D]-0-|", options: [], metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[D(150)]", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[D]-0-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-20-[D(150)]", options: [], metrics: nil, views: views)
 
         // ScrollView Contraints
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[S]-0-|", options: [], metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[S]-0-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[S]-0-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[S]-0-|", options: [], metrics: nil, views: views)
 
         // Container Constraints
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[C]-0-|", options: [], metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[C(==D)]-0-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[C]-0-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[C(==D)]-0-|", options: [], metrics: nil, views: views)
 
-        constraints += [NSLayoutConstraint(item: dummyView, attribute: .Width, relatedBy: .Equal,
-                                          toItem: container, attribute: .Width, multiplier: 1/CGFloat(colors.count), constant: 0)]
+        constraints += [NSLayoutConstraint(item: dummyView, attribute: .width, relatedBy: .equal,
+                                          toItem: container, attribute: .width, multiplier: 1/CGFloat(colors.count), constant: 0)]
 
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
     
     
@@ -78,19 +78,19 @@ class FourthViewController: UIViewController {
             // Add constraints to subview
             var views = ["D": dummyView, "SUB": subview]
             
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:[SUB(==D)]", options: [], metrics: nil, views: views)
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("V:[SUB(==D)]", options: [], metrics: nil, views: views)
-            constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[SUB]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:[SUB(==D)]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "V:[SUB(==D)]", options: [], metrics: nil, views: views)
+            constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[SUB]", options: [], metrics: nil, views: views)
             
             if index == 0 {
-                constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[SUB]", options: [], metrics: nil, views: views)
+                constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[SUB]", options: [], metrics: nil, views: views)
             } else {
                 let leftHandView = subviews[index-1]
                 views["LHV"] = leftHandView
-                constraintsArray += NSLayoutConstraint.constraintsWithVisualFormat("H:[LHV]-0-[SUB]", options: [], metrics: nil, views: views)
+                constraintsArray += NSLayoutConstraint.constraints(withVisualFormat: "H:[LHV]-0-[SUB]", options: [], metrics: nil, views: views)
             }
         }
         
-        NSLayoutConstraint.activateConstraints(constraintsArray)
+        NSLayoutConstraint.activate(constraintsArray)
     }
 }

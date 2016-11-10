@@ -10,7 +10,7 @@ import UIKit
 
 extension NSLayoutConstraint {
     
-    func setMultiplier(multiplier:CGFloat) {
+    func setMultiplier(_ multiplier:CGFloat) {
         let newConstraint = NSLayoutConstraint(
             item: firstItem,
             attribute: firstAttribute,
@@ -23,15 +23,15 @@ extension NSLayoutConstraint {
         newConstraint.priority = priority
         newConstraint.shouldBeArchived = self.shouldBeArchived
         newConstraint.identifier = self.identifier
-        newConstraint.active = self.active
+        newConstraint.isActive = self.isActive
         
-        NSLayoutConstraint.deactivateConstraints([self])
-        NSLayoutConstraint.activateConstraints([newConstraint])
+        NSLayoutConstraint.deactivate([self])
+        NSLayoutConstraint.activate([newConstraint])
     }
     
     
-    func constraintWithMultiplier(multiplier: CGFloat) -> NSLayoutConstraint {
-        self.active = false
+    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
+        self.isActive = false
         
         let newConstraint = NSLayoutConstraint(
             item: firstItem,
@@ -42,7 +42,7 @@ extension NSLayoutConstraint {
             multiplier: multiplier,
             constant: constant)
         
-        newConstraint.active = true
+        newConstraint.isActive = true
         return newConstraint
     }
 }
